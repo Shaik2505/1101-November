@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Theme Colors */
+:root {
+    --primary: #007BFF; /* Light mode primary (Use for primary buttons and highlights) */
+    --secondary: #28A745; /* Light mode secondary (Use for success messages and notifications) */
+    --accent: #FFC107; /* Light mode accent (Use for attention-grabbing elements like notifications) */
+    --background: #F8F9FA; /* Light mode background (Use for the main background) */
+    --text: #343A40; /* Light mode text (Use for primary text and icons) */
+    --border: #E0E0E0; /* Light mode border (Use for borders and dividers) */
+    --success: #28A745; /* Light mode success (Use for positive actions and messages) */
+    --warning: #FFC107; /* Light mode warning (Use for warnings and important notices) */
+    --error: #DC3545; /* Light mode error (Use for errors and critical alerts) */
+    --highlight: #FFD700; /* Light mode highlight (Use for special highlights and important elements) */
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary: #1E1E1E; /* Dark mode primary (Use for primary background in dark mode) */
+      --secondary: #17A974; /* Dark mode secondary (Use for success messages and notifications in dark mode) */
+      --accent: #FFC107; /* Dark mode accent (Use for attention-grabbing elements like notifications in dark mode) */
+      --background: #1E1E1E; /* Dark mode background (Use for the main background in dark mode) */
+      --text: #FFFFFF; /* Dark mode text (Use for primary text and icons in dark mode) */
+      --on-hover: #2A2A2A; /* Dark mode hover (Use for hover states on buttons and links in dark mode) */
+      --border: #333333; /* Dark mode border (Use for borders and dividers in dark mode) */
+      --success: #17A974; /* Dark mode success (Use for positive actions and messages in dark mode) */
+      --warning: #FFC107; /* Dark mode warning (Use for warnings and important notices in dark mode) */
+      --error: #FF5252; /* Dark mode error (Use for errors and critical alerts in dark mode) */
+      --highlight: #FFD700; /* Dark mode highlight (Use for special highlights and important elements in dark mode) */
+    }
+  }
+  
