@@ -71,20 +71,6 @@ const NavLinks = ({ onLinkClick }) => {
             >
               Dashboard
             </Link>
-            <Link
-              to="/body/home-recent"
-              onClick={onLinkClick}
-              className={linkClasses}
-            >
-              Recent Stories
-            </Link>
-            <Link
-              to="/body/home-recommended"
-              onClick={onLinkClick}
-              className={linkClasses}
-            >
-              Recommended Content
-            </Link>
           </div>
         )}
       </div>
@@ -142,26 +128,9 @@ const NavLinks = ({ onLinkClick }) => {
           onClick={() => handleDropdownToggle(2)}
           className={baseClasses}
         >
-          Media
+         Chat & Media
         </Link>
-        {activeDropdown === 2 && (
-          <div className={dropdownClasses}>
-            <Link
-              to="/body/media-upload"
-              onClick={onLinkClick}
-              className={linkClasses}
-            >
-              Upload Media
-            </Link>
-            <Link
-              to="/body/media-media"
-              onClick={onLinkClick}
-              className={linkClasses}
-            >
-              My Media
-            </Link>
-          </div>
-        )}
+       
       </div>
 
       {/* Analytics Dropdown */}
@@ -178,31 +147,6 @@ const NavLinks = ({ onLinkClick }) => {
         >
           Analytics
         </Link>
-        {activeDropdown === 3 && (
-          <div className={dropdownClasses}>
-            <Link
-              to="/body/story-performance"
-              onClick={onLinkClick}
-              className={linkClasses}
-            >
-              Story Performance
-            </Link>
-            <Link
-              to="/body/reader-engagement"
-              onClick={onLinkClick}
-              className={linkClasses}
-            >
-              Reader Engagement
-            </Link>
-            <Link
-              to="/body/trends"
-              onClick={onLinkClick}
-              className={linkClasses}
-            >
-              Trends & Insights
-            </Link>
-          </div>
-        )}
       </div>
 
       {/* Profile Dropdown */}

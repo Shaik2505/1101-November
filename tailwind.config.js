@@ -5,28 +5,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#007BFF", // Light Blue (Use for primary buttons and highlights)
-        secondary: "#28A745", // Green (Use for success messages and notifications)
-        accent: "#FFC107", // Amber (Use for attention-grabbing elements like notifications)
-        background: "#F8F9FA", // Light Grey (Use for the main background)
-        text: "#343A40", // Dark Grey (Use for primary text and icons)
-        border: "#E0E0E0", // Light Grey (Use for borders and dividers)
-        success: "#28A745", // Green (Use for positive actions and messages)
-        warning: "#FFC107", // Amber (Use for warnings and important notices)
-        error: "#DC3545", // Red (Use for errors and critical alerts)
-        highlight: "#FFD700", // Gold (Use for special highlights and important elements)
-
-        darkPrimary: "#1E1E1E", // Dark Grey (Use for primary background in dark mode)
-        darkSecondary: "#17A974", // Dark Green (Use for success messages and notifications in dark mode)
-        darkAccent: "#FFC107", // Amber (Use for attention-grabbing elements like notifications in dark mode)
-        darkBackground: "#1E1E1E", // Dark Grey (Use for the main background in dark mode)
-        darkText: "#FFFFFF", // White (Use for primary text and icons in dark mode)
-        darkOnHover: "#505050", // Dark Grey (Use for hover states on buttons and links in dark mode)
-        darkBorder: "#333333", // Medium Dark Grey (Use for borders and dividers in dark mode)
-        darkSuccess: "#17A974", // Dark Green (Use for positive actions and messages in dark mode)
-        darkWarning: "#FFC107", // Amber (Use for warnings and important notices in dark mode)
-        darkError: "#FF5252", // Bright Red (Use for errors and critical alerts in dark mode)
-        darkHighlight: "#FFD700", // Gold (Use for special highlights and important elements in dark mode)
+        primary: "#007BFF", // Light Blue
+        secondary: "#28A745", // Green
+        accent: "#FFC107", // Amber
+        background: "#F8F9FA", // Light Grey
+        text: "#343A40", // Dark Grey
+        border: "#E0E0E0", // Light Grey
+        highlight: "#FFD700", // Gold
+        darkPrimary: "#1E1E1E", // Dark Grey
+        darkBackground: "#1E1E1E", // Dark Grey for dark mode
+        darkText: "#FFFFFF", // White for dark mode
+        darkHighlight: "#FFD700", // Gold for dark mode
       },
       fontSize: {
         cXS: ".75rem",
@@ -40,18 +29,35 @@ export default {
         C5XL: "3rem",
       },
       keyframes: {
-        fadeIn: {
-          "0%": { opacity: 0 },
-          "100%": { opacity: 1 },
+        slideIn: {
+          from: { transform: "translateX(100%)", opacity: 0 }, // Start from the right off-screen
+          to: { transform: "translateX(0%)", opacity: 1 }, // Move to its original position
         },
-        fadeOut: {
-          "0%": { opacity: 1 },
-          "100%": { opacity: 0 },
+        slideOut: {
+          from: { transform: "translateX(0)", opacity: 1 }, // Start from its position
+          to: { transform: "translateX(100%)", opacity: 0 }, // Move off to the right
         },
+        gradientMove: {
+          from: { backgroundPosition: "0% 50%" },
+          to: { backgroundPosition: "100% 50%" },
+        },
+        typing: {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
+        blink: {
+          "0%, 100%": { opacity: 1 },
+          "50%": { opacity: 0 },
+        },
+        
+        
       },
       animation: {
-        fadeIn: "fadeIn 1s ease-in-out",
-        fadeOut: "fadeOut 1s ease-in-out",
+        slideIn: "slideIn 1.5s ease-out", // Apply the slide-in animation
+        slideOut: "slideOut 1s ease-in", // Apply the slide-out animation
+        gradientMove: "gradientMove 6s ease infinite", // Add the gradient move animation
+        typing: 'typing 3s steps(30, end) infinite', // Adjust timing and steps for text length
+        blink: 'blink 1s step-end infinite',
       },
     },
   },

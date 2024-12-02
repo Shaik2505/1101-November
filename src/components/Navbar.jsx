@@ -38,7 +38,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className="w-full sticky top-0 bg-primary shadow-md hover:primary/50 transition duration-300 dark:bg-darkPrimary "
+      className=" z-50 w-full fixed bg-primary shadow-md hover:primary/50 transition duration-300 dark:bg-gray-700 "
       ref={navRef}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,6 +46,7 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link
               to="/body/home"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="text-text hover:text-text/50 text-2xl font-bold dark:text-darkText dark:hover:text-darkOnHover"
             >
               MyApp
