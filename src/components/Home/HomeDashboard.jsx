@@ -99,8 +99,7 @@ const Section = ({ title, data, chartKey, tableColumns }) => (
 const Dashboard = () => {
   return (
     <div className="flex pt-16">
-      {/* Sidebar */}
-      <Sidebar />
+      
 
       {/* Main Content */}
       <div className="ml-56 p-8 flex-1 bg-background dark:bg-darkBackground transition-colors duration-300 overflow-y-auto">
