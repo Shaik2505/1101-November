@@ -1,8 +1,14 @@
 import React from "react";
-import Sidebar from "./Sidebar"; // Assuming Sidebar is in the same directory
 import {
   LineChart,
+  BarChart,
+  AreaChart,
+  PieChart,
   Line,
+  Bar,
+  Area,
+  Pie,
+  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -30,31 +36,29 @@ const featureData = {
     { date: "Day 6", newUsers: 55 },
     { date: "Day 7", newUsers: 70 },
   ],
-  // Add more sections data as needed
 };
 
-const Section = ({ title, data, chartKey, tableColumns }) => (
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+const Section = ({ title, data, chartKey, tableColumns, ChartType, ChartComponent }) => (
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
     {/* Chart */}
     <div className="bg-white dark:bg-darkPrimary shadow-md rounded-lg p-6">
       <h2 className="text-xl font-bold mb-4">{title} - Chart</h2>
       <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={data}>
+        <ChartComponent data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
           <YAxis />
           <Tooltip />
           <Legend />
           {chartKey.map((key, idx) => (
-            <Line
+            <ChartType
               key={idx}
-              type="monotone"
               dataKey={key.dataKey}
-              stroke={key.color}
+              fill={key.color}
               name={key.label}
             />
           ))}
-        </LineChart>
+        </ChartComponent>
       </ResponsiveContainer>
     </div>
 
@@ -67,7 +71,7 @@ const Section = ({ title, data, chartKey, tableColumns }) => (
             {tableColumns.map((col, idx) => (
               <th
                 key={idx}
-                className="border border-gray-300 dark:border-gray-700 px-4 py-2"
+                className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left"
               >
                 {col}
               </th>
@@ -83,7 +87,7 @@ const Section = ({ title, data, chartKey, tableColumns }) => (
               {tableColumns.map((col, colIdx) => (
                 <td
                   key={colIdx}
-                  className="border border-gray-300 dark:border-gray-700 px-4 py-2"
+                  className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left"
                 >
                   {row[col.toLowerCase()]}
                 </td>
@@ -98,44 +102,33 @@ const Section = ({ title, data, chartKey, tableColumns }) => (
 
 const Dashboard = () => {
   return (
-    <div className="flex pt-16">
-      
-
-      {/* Main Content */}
-      <div className="ml-56 p-8 flex-1 bg-background dark:bg-darkBackground transition-colors duration-300 overflow-y-auto">
+    <div className="flex pt-16 w-screen bg-background">
+      <div className="md:ml-16 p-8 flex-1 w-full dark:bg-darkBackground transition-colors duration-300 overflow-y-auto">
         <h1 className="text-3xl font-bold mb-8 text-text dark:text-darkText">
           TextingStory Chat Story Maker Overview
         </h1>
 
-        {/* Overview Section */}
+        {/* Overview Section - LineChart */}
         <Section
           title="Overview"
           data={featureData.overview}
           chartKey={[{ dataKey: "activity", color: "#8884d8", label: "Activity" }]}
           tableColumns={["Date", "Activity"]}
+          ChartType={Line}
+          ChartComponent={LineChart}
         />
 
-        {/* User Profiles Section */}
+        {/* User Profiles Section - BarChart */}
         <Section
           title="User Profiles"
           data={featureData.user}
           chartKey={[{ dataKey: "newUsers", color: "#82ca9d", label: "New Users" }]}
           tableColumns={["Date", "New Users"]}
-        />
-        <Section
-          title="User Profiles"
-          data={featureData.user}
-          chartKey={[{ dataKey: "newUsers", color: "#82ca9d", label: "New Users" }]}
-          tableColumns={["Date", "New Users"]}
-        />
-        <Section
-          title="User Profiles"
-          data={featureData.user}
-          chartKey={[{ dataKey: "newUsers", color: "#82ca9d", label: "New Users" }]}
-          tableColumns={["Date", "New Users"]}
+          ChartType={Bar}
+          ChartComponent={BarChart}
         />
 
-        {/* Add more sections for other features */}
+        {/* Add more sections for other features with different chart types */}
       </div>
     </div>
   );
