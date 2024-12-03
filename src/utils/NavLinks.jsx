@@ -29,6 +29,9 @@ const NavLinks = ({ onLinkClick }) => {
       <Link to="/body/profile" onClick={onLinkClick} className={baseClasses}>
         Profile
       </Link>
+      <button to="/" onClick={onLinkClick} className='bg-black text-white p-2 rounded-lg'>
+        Logout
+      </button>
     </div>
   );
 };

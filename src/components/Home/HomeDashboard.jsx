@@ -41,7 +41,7 @@ const Section = ({
   ChartType,
   ChartComponent,
 }) => (
-  <div className="grid grid-cols-2 md:grid-cols-2 gap-6 mb-12 ">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
     {/* Chart */}
     <div className="bg-white dark:bg-darkPrimary/20 shadow-md rounded-lg p-6 dark:shadow-primary">
       <h2 className="text-xl font-bold mb-4 dark:text-darkText">
@@ -77,9 +77,7 @@ const Section = ({
             {tableColumns.map((col, idx) => (
               <th
                 key={idx}
-                className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left dark:
-                
-                text-white"
+                className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left dark:text-white"
               >
                 {col}
               </th>
@@ -111,7 +109,7 @@ const Section = ({
 const Dashboard = () => {
   return (
     <div className="flex pt-16 w-screen bg-background">
-      <div className=" p-8 flex-1 w-full dark:bg-darkBackground transition-colors duration-300 overflow-y-auto">
+      <div className="p-8 flex-1 w-full dark:bg-darkBackground transition-colors duration-300 overflow-y-auto">
         <h1 className="text-3xl font-bold mb-8 text-text dark:text-darkText">
           TextingStory Chat Story Maker Overview
         </h1>
