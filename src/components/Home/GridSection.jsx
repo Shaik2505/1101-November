@@ -33,17 +33,24 @@ const pieData = [
   { name: "Others", value: 200 },
 ];
 
+const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+const axisStyle = {
+  stroke: isDarkMode ? '#ffffff' : '#000000',
+  fill: isDarkMode ? '#ffffff' : '#000000',
+};
+
 const GridSection = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
       {/* Line Chart */}
       <div className="bg-white dark:bg-darkPrimary shadow-md rounded-lg p-6">
-        <h2 className="text-xl font-bold mb-4">Line Chart</h2>
+        <h2 className="text-xl font-bold mb-4 ">Line Chart</h2>
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="date" />
-            <YAxis />
+            <CartesianGrid strokeDasharray="4 4" />
+            <XAxis dataKey="date" stroke={axisStyle.stroke} tick={{ fill: axisStyle.fill }} />
+            <YAxis stroke={axisStyle.stroke} tick={{ fill: axisStyle.fill }} />
             <Tooltip />
             <Legend />
             <Line type="monotone" dataKey="usage" stroke="#8884d8" />
@@ -57,8 +64,8 @@ const GridSection = () => {
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="date" />
-            <YAxis />
+            <XAxis dataKey="date" stroke={axisStyle.stroke} tick={{ fill: axisStyle.fill }} />
+            <YAxis stroke={axisStyle.stroke} tick={{ fill: axisStyle.fill }} />
             <Tooltip />
             <Legend />
             <Bar dataKey="usage" fill="#82ca9d" />
@@ -94,7 +101,7 @@ const GridSection = () => {
         <table className="min-w-full border-collapse border border-gray-200 dark:border-gray-700">
           <thead>
             <tr>
-              <th className="border border-gray-300 dark:border-gray-700 px-4 py-2">
+              <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 dark:text-white">
                 Date
               </th>
               <th className="border border-gray-300 dark:border-gray-700 px-4 py-2">
@@ -108,7 +115,7 @@ const GridSection = () => {
                 key={index}
                 className="odd:bg-gray-50 dark:odd:bg-gray-800 even:bg-white dark:even:bg-gray-900"
               >
-                <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">
+                <td className="border border-white dark:border-gray-700 px-4 py-2">
                   {item.date}
                 </td>
                 <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">

@@ -33,11 +33,20 @@ const featureData = {
   ],
 };
 
-const Section = ({ title, data, chartKey, tableColumns, ChartType, ChartComponent }) => (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+const Section = ({
+  title,
+  data,
+  chartKey,
+  tableColumns,
+  ChartType,
+  ChartComponent,
+}) => (
+  <div className="grid grid-cols-2 md:grid-cols-2 gap-6 mb-12 ">
     {/* Chart */}
     <div className="bg-white dark:bg-darkPrimary/20 shadow-md rounded-lg p-6 dark:shadow-primary">
-      <h2 className="text-xl font-bold mb-4 dark:text-darkText">{title} - Chart</h2>
+      <h2 className="text-xl font-bold mb-4 dark:text-darkText">
+        {title} - Chart
+      </h2>
       <ResponsiveContainer width="100%" height={300}>
         <ChartComponent data={data}>
           <CartesianGrid strokeDasharray="3 3" />
@@ -59,14 +68,18 @@ const Section = ({ title, data, chartKey, tableColumns, ChartType, ChartComponen
 
     {/* Table */}
     <div className="bg-white dark:bg-darkPrimary shadow-md rounded-lg p-6 overflow-auto dark:shadow-primary">
-      <h2 className="text-xl font-bold mb-4 dark:text-darkText">{title} - Table</h2>
+      <h2 className="text-xl font-bold mb-4 dark:text-darkText">
+        {title} - Table
+      </h2>
       <table className="min-w-full border-collapse border border-gray-200 dark:border-gray-700">
         <thead>
           <tr>
             {tableColumns.map((col, idx) => (
               <th
                 key={idx}
-                className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left"
+                className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left dark:
+                
+                text-white"
               >
                 {col}
               </th>
@@ -82,7 +95,7 @@ const Section = ({ title, data, chartKey, tableColumns, ChartType, ChartComponen
               {tableColumns.map((col, colIdx) => (
                 <td
                   key={colIdx}
-                  className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left"
+                  className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left dark:text-white"
                 >
                   {row[col.toLowerCase()]}
                 </td>
@@ -98,7 +111,7 @@ const Section = ({ title, data, chartKey, tableColumns, ChartType, ChartComponen
 const Dashboard = () => {
   return (
     <div className="flex pt-16 w-screen bg-background">
-      <div className="md:ml-16 p-8 flex-1 w-full dark:bg-darkBackground transition-colors duration-300 overflow-y-auto">
+      <div className=" p-8 flex-1 w-full dark:bg-darkBackground transition-colors duration-300 overflow-y-auto">
         <h1 className="text-3xl font-bold mb-8 text-text dark:text-darkText">
           TextingStory Chat Story Maker Overview
         </h1>
@@ -107,7 +120,9 @@ const Dashboard = () => {
         <Section
           title="Overview"
           data={featureData.overview}
-          chartKey={[{ dataKey: "activity", color: "#8884d8", label: "Activity" }]}
+          chartKey={[
+            { dataKey: "activity", color: "#fff", label: "Activity" },
+          ]}
           tableColumns={["Date", "Activity"]}
           ChartType={Line}
           ChartComponent={LineChart}
@@ -117,7 +132,9 @@ const Dashboard = () => {
         <Section
           title="User Profiles"
           data={featureData.user}
-          chartKey={[{ dataKey: "newUsers", color: "#82ca9d", label: "New Users" }]}
+          chartKey={[
+            { dataKey: "newUsers", color: "#82ca9d", label: "New Users" },
+          ]}
           tableColumns={["Date", "New Users"]}
           ChartType={Bar}
           ChartComponent={BarChart}
