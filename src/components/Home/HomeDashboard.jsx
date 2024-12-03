@@ -2,13 +2,8 @@ import React from "react";
 import {
   LineChart,
   BarChart,
-  AreaChart,
-  PieChart,
   Line,
   Bar,
-  Area,
-  Pie,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -41,8 +36,8 @@ const featureData = {
 const Section = ({ title, data, chartKey, tableColumns, ChartType, ChartComponent }) => (
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
     {/* Chart */}
-    <div className="bg-white dark:bg-darkPrimary shadow-md rounded-lg p-6">
-      <h2 className="text-xl font-bold mb-4">{title} - Chart</h2>
+    <div className="bg-white dark:bg-darkPrimary/20 shadow-md rounded-lg p-6 dark:shadow-primary">
+      <h2 className="text-xl font-bold mb-4 dark:text-darkText">{title} - Chart</h2>
       <ResponsiveContainer width="100%" height={300}>
         <ChartComponent data={data}>
           <CartesianGrid strokeDasharray="3 3" />
@@ -63,8 +58,8 @@ const Section = ({ title, data, chartKey, tableColumns, ChartType, ChartComponen
     </div>
 
     {/* Table */}
-    <div className="bg-white dark:bg-darkPrimary shadow-md rounded-lg p-6 overflow-auto">
-      <h2 className="text-xl font-bold mb-4">{title} - Table</h2>
+    <div className="bg-white dark:bg-darkPrimary shadow-md rounded-lg p-6 overflow-auto dark:shadow-primary">
+      <h2 className="text-xl font-bold mb-4 dark:text-darkText">{title} - Table</h2>
       <table className="min-w-full border-collapse border border-gray-200 dark:border-gray-700">
         <thead>
           <tr>

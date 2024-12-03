@@ -58,7 +58,7 @@ const Stories = () => {
       ))}
 
       <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg sm:p-8 md:px-12 lg:p-16 dark:bg-darkPrimary">
-        <h1 className="text-2xl font-bold mb-6 text-primary sm:text-3xl lg:text-4xl dark:text-darkHighlight">
+        <h1 className="text-2xl font-bold mb-6 text-primary sm:text-3xl lg:text-4xl dark:text-primary">
           Create Your Story
         </h1>
 
@@ -75,7 +75,7 @@ const Stories = () => {
             value={story}
             onChange={handleStoryChange}
             placeholder="Start writing your story here..."
-            className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-darkPrimary dark:text-darkText dark:border-darkHighlight dark:shadow-[0px_4px_10px_rgba(255,255,0,0.5)]"
+            className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-darkPrimary dark:text-darkText dark:border-primary dark:shadow-[0px_4px_10px_rgba(255,255,0,0.5)]"
             rows="6"
           ></textarea>
         </div>
@@ -91,7 +91,7 @@ const Stories = () => {
             multiple
             accept="image/*,video/*,audio/*"
             onChange={handleMediaUpload}
-            className="block w-full text-gray-700 border rounded-lg cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:bg-accent file:text-background hover:file:bg-highlight dark:text-darkText dark:file:bg-darkHighlight dark:shadow-[0px_4px_10px_rgba(255,255,0,0.5)]"
+            className="block w-full text-gray-700 border rounded-lg cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:bg-accent file:text-background hover:file:bg-highlight dark:text-darkText dark:file:bg-primary dark:shadow-[0px_4px_10px_rgba(255,255,0,0.5)]"
           />
           <div className="mt-4">
             {media.map((file, index) => (
@@ -117,11 +117,11 @@ const Stories = () => {
               placeholder="Enter collaborator's email"
               value={newCollaborator}
               onChange={(e) => setNewCollaborator(e.target.value)}
-              className="flex-1 p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-darkPrimary dark:text-darkText dark:border-darkHighlight dark:shadow-[0px_4px_10px_rgba(255,255,0,0.5)]"
+              className="flex-1 p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary dark:bg-darkPrimary dark:text-darkText dark:border-primary dark:shadow-[0px_4px_10px_rgba(255,255,0,0.5)]"
             />
             <button
               onClick={handleAddCollaborator}
-              className="px-6 py-2 bg-secondary text-white font-semibold rounded-lg hover:bg-highlight dark:bg-darkHighlight dark:hover:bg-highlight"
+              className="px-6 py-2 bg-secondary text-white font-semibold rounded-lg hover:bg-highlight dark:bg-primary dark:hover:bg-highlight"
             >
               Add
             </button>
@@ -130,7 +130,7 @@ const Stories = () => {
             {collaborators.map((email, index) => (
               <span
                 key={index}
-                className="inline-block bg-accent text-background px-4 py-2 rounded-full text-sm font-medium dark:bg-darkHighlight dark:text-darkText"
+                className="inline-block bg-accent text-background px-4 py-2 rounded-full text-sm font-medium dark:bg-primary dark:text-darkText"
               >
                 {email}
               </span>
@@ -140,7 +140,7 @@ const Stories = () => {
 
         {/* Submit Button */}
         <div className="text-right">
-          <button className="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-highlight transition-all dark:bg-darkHighlight dark:hover:bg-highlight">
+          <button className="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-highlight transition-all dark:bg-primary dark:hover:bg-primary/20">
             Save Story
           </button>
         </div>

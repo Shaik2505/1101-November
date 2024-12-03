@@ -5,18 +5,11 @@ import NavLinks from "../utils/NavLinks";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null); // Track active dropdown
   const navRef = useRef(null);
-  const dropdownRefs = useRef([]); // To store refs of each dropdown
 
   const handleClickOutside = (event) => {
-    if (
-      navRef.current &&
-      !navRef.current.contains(event.target) && // Check if clicked outside the navbar
-      !dropdownRefs.current.some((ref) => ref && ref.contains(event.target)) // Also check if clicked outside any dropdown
-    ) {
+    if (navRef.current && !navRef.current.contains(event.target)) {
       setIsOpen(false);
-      setActiveDropdown(null); // Close active dropdown when clicking outside
     }
   };
 
@@ -32,13 +25,9 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
-  const handleDropdownToggle = (index) => {
-    setActiveDropdown((prevIndex) => (prevIndex === index ? null : index)); // Toggle active dropdown
-  };
-
   return (
     <nav
-      className=" z-50 w-full fixed bg-primary shadow-md hover:primary/50 transition duration-300 dark:bg-gray-700 "
+      className="z-50 w-full fixed bg-primary shadow-md transition duration-300 dark:bg-gray-700"
       ref={navRef}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,12 +42,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">
-            <NavLinks
-              onLinkClick={() => setIsOpen(false)} // Close menu when link clicked
-              handleDropdownToggle={handleDropdownToggle}
-              activeDropdown={activeDropdown}
-              dropdownRefs={dropdownRefs}
-            />
+            <NavLinks onLinkClick={() => setIsOpen(false)} />
             <ThemeBtn />
           </div>
           <div className="flex md:hidden items-center space-x-4">
@@ -100,7 +84,7 @@ const Navbar = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="fixed inset-y-0 right-0 w-64 bg-primary shadow-lg transform translate-x-0 transition-transform duration-300 md:hidden z-50">
+        <div className="absolute top-0 right-0 w-2/4 bg-primary transition-all animate-slideIn duration-100 dark:bg-darkPrimary shadow-lg md:hidden z-50 overflow-y-auto rounded-lg">
           <div className="flex justify-end p-4">
             <button
               onClick={() => setIsOpen(false)}
@@ -123,20 +107,9 @@ const Navbar = () => {
             </button>
           </div>
           <div className="p-4 space-y-4">
-            <NavLinks
-              onLinkClick={() => setIsOpen(false)}
-              handleDropdownToggle={handleDropdownToggle}
-              activeDropdown={activeDropdown}
-              dropdownRefs={dropdownRefs}
-            />
+            <NavLinks onLinkClick={() => setIsOpen(false)} />
           </div>
         </div>
-      )}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
-          onClick={() => setIsOpen(false)}
-        ></div>
       )}
     </nav>
   );

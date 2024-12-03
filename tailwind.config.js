@@ -53,7 +53,7 @@ export default {
         
       },
       animation: {
-        slideIn: "slideIn 1.5s ease-out", // Apply the slide-in animation
+        slideIn: "slideIn .5s ease-out", // Apply the slide-in animation
         slideOut: "slideOut 1s ease-in", // Apply the slide-out animation
         gradientMove: "gradientMove 6s ease infinite", // Add the gradient move animation
         typing: 'typing 3s steps(30, end) infinite', // Adjust timing and steps for text length

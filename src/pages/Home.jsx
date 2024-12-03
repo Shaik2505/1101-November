@@ -17,7 +17,7 @@ const Home = () => {
           className="absolute inset-0 w-full h-full object-cover opacity-30 animate-pulse"
         />
         <h1 className="text-4xl font-bold mb-4 relative">
-          <span className="inline-block overflow-hidden whitespace-nowrap animate-bounce">
+          <span className="inline-block overflow-hidden whitespace-wrap animate-bounce">
             Create Cool Videos with TextingStory
           </span>
         </h1>
@@ -32,7 +32,7 @@ const Home = () => {
           <img
             src={CreativityImage}
             alt="Unleash Creativity"
-            className="w-full md:w-1/2 rounded-lg mb-4 md:mb-0 animate-pulse dark:grayscale dark:animate-none"
+            className="w-full md:w-1/2 rounded-lg mb-4 md:mb-0 animate-pulse dark: dark:animate-none"
           />
           <div className="md:w-1/2 space-y-4 md:pl-6">
             <h2 className="flex text-secondary dark:text-darkSecondary text-2xl font-semibold items-center">
@@ -41,7 +41,7 @@ const Home = () => {
               </span>
               Unleash your creativity
             </h2>
-            <ul className="list-disc pl-5">
+            <ul className="list-disc pl-5 font-semibold text-xl animate-slideIn">
               <li>
                 Write a text conversation as easily as in your messaging app.
               </li>
@@ -62,7 +62,7 @@ const Home = () => {
             <h2 className="text-secondary dark:text-darkSecondary text-2xl font-semibold">
               How It Works
             </h2>
-            <ul className="list-disc pl-5">
+            <ul className="list-disc pl-5 font-semibold text-xl animate-slideIn">
               <li>
                 Type your story with conversations, fictitious or relived past.
               </li>
@@ -81,7 +81,7 @@ const Home = () => {
           <img
             src={HowItWorksImage}
             alt="How It Works"
-            className="w-full md:w-1/2 rounded-lg animate-pulse dark:grayscale dark:animate-none"
+            className="w-full md:w-1/2 rounded-lg animate-pulse dark: dark:animate-none"
           />
         </section>
 
@@ -90,7 +90,7 @@ const Home = () => {
           <img
             src={GetStartedImage}
             alt="Get Started"
-            className="w-full md:w-1/2 rounded-lg mb-4 md:mb-0 animate-pulse dark:grayscale dark:animate-none"
+            className="w-full md:w-1/2 rounded-lg mb-4 md:mb-0 animate-pulse dark: dark:animate-none"
           />
           <div className="md:w-1/2 space-y-4 md:pl-6">
             <h2 className="text-secondary dark:text-darkSecondary text-2xl font-semibold">
